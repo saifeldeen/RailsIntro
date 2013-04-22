@@ -56,6 +56,7 @@ responses[:negative] = [ "Don't count on it", "My reply is no",
 module RandomArrayValueFromHash
 	def pick_random_value( responses )
 		random_key = responses.keys[rand(responses.size)]
+		responses[random_key].sample
 	end
 end
 

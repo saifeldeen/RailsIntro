@@ -23,3 +23,40 @@
 #
 ################################################################################
 
+class Responses
+	include Enumerable
+
+	@@responses = Hash.new
+
+	@@responses[:positive] =  [ "It is certain", "It is decidedly so",
+	                          "Without a doubt", "Yes - definitely",
+	                          "You may rely on it", "As I see it, yes",
+	                          "Most likely", "Outlook good", "Yes",
+	                          "Signs point to yes" ]
+
+	@@responses[:neutral] =  [ "Reply hazy, try again", "Ask again later",
+	                         "Better not tell you now", "Cannot predict now",
+	                         "Concentrate and ask again" ]
+
+	@@responses[:negative] = [ "Don't count on it", "My reply is no",
+	                         "My sources say no", "Outlook not so good",
+	                         "Very doubtful" ]
+
+
+	def each
+		@@responses.each do | key, values |
+			values.each do | response |
+				yield(response)
+			end
+		end
+	end	                    
+end
+
+responses = Responses.new
+
+responses.each do | val |
+	puts val
+end
+
+puts "Includes this string #{responses.include?("It is certain")}"
+puts "Includes this string #{responses.include?(" is certain")}"

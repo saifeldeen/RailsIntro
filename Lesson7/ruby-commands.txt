@@ -1,0 +1,21 @@
+# creates new app
+rails new new_rails_app
+# creates a model
+ruby script\rails generate scaffold Book title:string author:string abstract:text
+
+
+RAKE:
+rake is c's version of make :)
+
+rake -T shows all tasks
+
+# shows rake status
+rake db:migrate:status
+
+# remove
+rake db:migrate:down VERSION=20130417085602
+
+# rake migrate
+rake db:migrate
+
+
