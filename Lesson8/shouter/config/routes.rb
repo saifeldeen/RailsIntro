@@ -1,6 +1,6 @@
 Shouter::Application.routes.draw do
   get '/shout' => 'shout#index', :as => 'shout'
-
+  # redirect all / to shout index
   get '/' => 'shout#index', :as => 'home'
 
   # The priority is based upon order of creation:
