@@ -1,0 +1,72 @@
+# creates new app
+rails new new_rails_app
+# creates a model
+ruby script\rails generate scaffold Book title:string author:string abstract:text
+
+# creates a user controller with index and show methods
+ruby script\rails generate controller user index show
+ruby script\rails g controller user index show
+
+RAKE:
+rake is c's version of make :)
+
+
+rake -T shows all tasks
+
+# shows rake status
+rake db:migrate:status
+
+# creates schema from scratch
+rake db:schema:load
+
+# runs all of the migrate scripts
+rake db:migrate
+
+# drops the db
+rake db:drop
+
+# remove
+rake db:migrate:down VERSION=20130417085602
+
+# rake migrate
+rake db:migrate
+
+
+
+# start ruby on windows
+ruby script/rails s
+# OR
+ruby script/rails server
+
+# create model
+ruby script\rails g model Movie title:string directory:string rating:string year:integer genre:string summary:text
+
+
+# shows all the rake tasks
+rake -T
+
+# shows all the database related tasks
+rake -T db
+
+# loads IRB but for rails!!!
+ruby script/rails console
+
+
+# ruby sql
+Movie.where( :year=> 1988 ) # where year = 1988
+Movie.where( :year=> 1988..2000 ) #  where year between 1988 and 2000
+Movie.where(:year => [1979, 1988] ) # where year in 1979, 1988
+
+User.count # gets the count of items
+
+
+# use the _ to get the last created object in IRB
+
+# get the errors
+object.errors.full_message
+
+# using grep
+object.methods.grep /xxx/
+
+# recreates test database using schema.rb
+rake db:test:prepare

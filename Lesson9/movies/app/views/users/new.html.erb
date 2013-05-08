@@ -1,0 +1,16 @@
+<%= form_for @user do |f| %>
+
+  <%= f.label :first_name %>
+  <%=  f.text_field :first_name %>
+  <%= f.label :last_name %>
+  <%=  f.text_field :last_name %>
+  <%= f.label :age %>
+  <%=  f.text_field :age %>
+
+  <%= f.submit 'Go' %>
+<% end %>
+
+
+<% if @first_name && @last_name %>
+<p> Hello <%= @first_name %> <%= @last_name %></p>
+<% end %>

@@ -14,6 +14,7 @@ describe Movie do
   describe 'with a title' do
   	before do
   		@movie.title = 'Jaws'
+  		@movie.year = 1901
   	end
 
   	it 'must be valid' do
@@ -24,9 +25,10 @@ describe Movie do
 
   describe 'a movie prior to 1900' do
   	before do
+  		@movie.title = 'Old movie'
   		@movie.year = 1890
   	end
-  	
+
   	it 'must not be valid' do
   		assert !@movie.valid?
   	end

@@ -1,0 +1,14 @@
+<h1>Book reviews</h1>
+
+<table style="border:1px solid green;">
+	<th>Name</th>
+	<th>Book</th>
+	<th>Review</th>
+<% @reviews.each do |review| %>
+  <tr>
+    <td><%= review.user.first_name %> <%= review.user.last_name %></td>
+    <td><%= review.book.title %></td>
+    <td><%= review.comments %></td>
+  </tr>
+<% end %>
+</table>
