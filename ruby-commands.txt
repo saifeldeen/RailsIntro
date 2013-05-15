@@ -70,3 +70,10 @@ object.methods.grep /xxx/
 
 # recreates test database using schema.rb
 rake db:test:prepare
+
+# bugsnag
+
+
+# to add authentication to any rails project, go to https://github.com/plataformatec/devise
+
+# use simple_form so that it simplifies form development

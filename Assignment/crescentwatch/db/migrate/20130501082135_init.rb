@@ -5,6 +5,8 @@ class Init < ActiveRecord::Migration
       t.integer :age
       t.string :email
       t.string :password
+      t.string   "password_hash"
+      t.string :password_salt
 
       t.timestamps
     end

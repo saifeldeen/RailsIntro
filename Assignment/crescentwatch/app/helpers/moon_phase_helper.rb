@@ -12,7 +12,7 @@ module MoonPhaseHelper
   		if illumination.to_i == :NEW_MOON_VAL 
   			"new_moon"
   		elsif illumination.to_i == FULL_MOON_VAL
-  			"full_moon"
+  			"fullmoon"
   		elsif illumination.to_i >= MIN_QUARTER_VAL && illumination <= MAX_QUARTER_VAL
   			"last_quarter"  			
   		elsif illumination.to_i >= MIN_WAXING_VAL && illumination <= MAX_WAXING_VAL
