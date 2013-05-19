@@ -3,19 +3,27 @@
 <head>
   <title>Crescentwatch</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "map" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "infobubble" %>
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 
-<div id="user_nav">
+<div id="cssmenu">
   <% if current_user %>
-    Logged in as <%= current_user.email %>.
-    <%= link_to "Log out", log_out_path %>
+    <ul>
+      <li><%= link_to "Moonphase Information", moonphases_path %></li>
+      <li><%= link_to "Add sighting", new_sighting_path %></li>
+      <li><%= link_to "Show sightings", sightings_path %></li>
+      <li><%= link_to "Show map", map_path %></li>
+      <li><%= link_to "Log out #{ current_user.email }", log_out_path %></li>
+    </ul>
   <% else %>
-    <%= link_to "Sign up", sign_up_path %> or
-    <%= link_to "log in", log_in_path %>
+      <%= link_to "Sign up", sign_up_path %> or
+      <%= link_to "log in", log_in_path %>
   <% end %>
 </div>
 
@@ -25,6 +33,7 @@
 
 
 <%= yield %>
+<%= yield :end_matter %>
 
 </body>
 </html>

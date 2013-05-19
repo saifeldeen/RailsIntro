@@ -32,6 +32,9 @@ class SightingsController < ApplicationController
     end
   end
 
+  def map
+  end
+
   # GET /sightings/1/edit
   def edit
     @sighting = Sighting.find(params[:id])
@@ -40,11 +43,13 @@ class SightingsController < ApplicationController
   # POST /sightings
   # POST /sightings.json
   def create
+    Rails.logger.debug("******** user: #{session[:user_id]}")
     @sighting = Sighting.new(params[:sighting])
+    @sighting.user = User.find(session[:user_id])
 
     respond_to do |format|
       if @sighting.save
-        format.html { redirect_to @sighting, notice: 'Sighting was successfully created.' }
+        format.html { redirect_to @sighting, notice: 'Thankyou for adding your sighting!' }
         format.json { render json: @sighting, status: :created, location: @sighting }
       else
         format.html { render action: "new" }

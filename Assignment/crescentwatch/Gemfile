@@ -4,8 +4,10 @@ gem "bcrypt-ruby", :require => "bcrypt"
 gem 'devise'
 gem 'jquery-rails'
 gem 'moonphases'
+gem 'paperclip'
 gem 'quiet_assets'
 gem 'rails', '3.2.13'
+gem 'simple_form'
 gem 'sqlite3'
 
 group :test, :development do

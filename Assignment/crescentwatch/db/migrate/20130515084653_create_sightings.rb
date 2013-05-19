@@ -5,7 +5,9 @@ class CreateSightings < ActiveRecord::Migration
       t.boolean :sighted
       t.string :visibility
       t.string :comments
-      t.string :photo
+      t.float :latitude
+      t.float :longitude
+      t.attachment :photo
 
       t.timestamps
     end

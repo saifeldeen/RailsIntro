@@ -1,5 +1,7 @@
 Crescentwatch::Application.routes.draw do
-  resources :sightings
+  resources :sightings do
+    get 'map', :on => :collection
+  end
 
 
   devise_for :users
@@ -9,6 +11,7 @@ Crescentwatch::Application.routes.draw do
   # first created -> highest priority.
 
 
+  get "sightings/map" => "sightings#map", :as => "map"
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "users#new", :as => "sign_up"

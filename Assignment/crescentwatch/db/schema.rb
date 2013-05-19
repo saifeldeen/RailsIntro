@@ -40,9 +40,14 @@ ActiveRecord::Schema.define(:version => 20130515084653) do
     t.boolean  "sighted"
     t.string   "visibility"
     t.string   "comments"
-    t.string   "photo"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   add_index "sightings", ["user_id"], :name => "index_sightings_on_user_id"
