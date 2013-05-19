@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user
       session[:user_id] = user.id
       Rails.logger.debug("******** creating user session #{user.id}" )
-      redirect_to root_url, :notice => "Logged in!"
+      redirect_to moonphases_url, :notice => ""
     else
       flash.now.alert = "Invalid email or password"
       render "new"
