@@ -18,6 +18,8 @@ Crescentwatch::Application.routes.draw do
   root :to => "users#new"
   resources :users
   resources :sessions
+  get 'moonphases/change_date' => 'moonphases#change_date', :as => "change_date"
+  get 'moonphases/index' => 'moonphases#index', :as => "moonphases"
   resources :moonphases
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

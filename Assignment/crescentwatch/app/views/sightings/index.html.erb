@@ -14,13 +14,16 @@
 
 <% @sightings.each do |sighting| %>
   <tr>
-    <td><%= sighting.user %></td>
+    <td><%= sighting.user.name %></td>
     <td><%= sighting.sighted %></td>
     <td><%= sighting.visibility %></td>
     <td><%= sighting.comments %></td>
-    <td><%= sighting.photo %></td>
+    <td>
+        <% if sighting.photo.to_s != '/photos/original/missing.png' %>
+            <img src="<%= sighting.photo %>" width="100px" height="100px"/>
+        <% end %>
+    </td>
     <td><%= link_to 'Show', sighting %></td>
-    <td><%= link_to 'Edit', edit_sighting_path(sighting) %></td>
     <td><%= link_to 'Destroy', sighting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>

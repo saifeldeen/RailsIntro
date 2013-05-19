@@ -33,12 +33,19 @@
 
         function addObservation(observation) {
             console.log('adding observation for user: ' + observation.name)
+            var sightedStr = (observation.sighted ? "sighted" : "did not sight")
+            var d = new Date(observation.created_at);
+            var dateStr = $.datepicker.formatDate( 'dd MM yy', d);
             var contentString = '<div id="content">'
                     + '<div id="userObservation">' + '</div>'
                     + '<h1 id="firstHeading" class="firstHeading">'
-                    + observation.name + '</h1>' + '<div id="bodyContent">'
-                    + '<p>Sighting visibility: ' + observation.visibility
-                    + '</p>' + '</div>' + '</div>';
+                    + observation.name+ ' ' + sightedStr + ' the moon on ' + dateStr +'</h1>' + '<div id="bodyContent">';
+            if (observation.sighted){
+                contentString+= '<p>Sighting visibility: ' + observation.visibility + '</p>' ;
+            } else {
+                contentString += 'Not sighted';
+            }
+            contentString += '</div>' + '</div>';
 
             var point = new google.maps.LatLng(observation.latitude,
                     observation.longitude);
@@ -62,12 +69,12 @@
             
             var markerIcon;
             
-            if ( observation.sighted == 'true' ){
+            if ( observation.sighted  ){
                 markerIcon = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png';
             }else {
                 markerIcon = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
             }
-
+            console.log('markerIcon'+markerIcon)
             var marker = new google.maps.Marker({
                 position : point,
                 map : map,

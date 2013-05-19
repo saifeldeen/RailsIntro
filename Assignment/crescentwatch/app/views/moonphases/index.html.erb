@@ -1,14 +1,27 @@
-<h1>Moonphase Information for <%= Date.today %></h1>
-
+  <script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+  </script>
 <p id="notice"><%= notice %></p>
 
 <table>
 	<tr>
 		<td><img height="400px" width="500px" src="/assets/moonphases/<%= phase_value(@fullness_today.getPercent.to_i).sub('_', '') %>.jpg"/></td>
 		<td>
-			<table>
+			<table valign="top">
 				<tr>
-					<td><%= phase_value(@fullness_today.getPercent.to_i).sub('_', ' ') %> (<%= @fullness_today.getPercent.to_i %>% illumination)</td>
+					<td>
+						<h1>Moonphase Information for <%= @now.strftime("%d %b %Y") %></h1>
+					</td>
+				</tr>
+				<tr>
+					<td><%= phase_value(@fullness_today.getPercent.to_i).sub('_', ' ') %> (<%= @fullness_today.getPercent.to_i %>% illumination)
+						<form action="/moonphases/change_date">
+							<p>Change date: <input type="text" id="datepicker" name="date" /></p>	
+							<input type="submit"/>
+						</form>
+					</td>
 				</tr>
 			</table>
 		</td>
@@ -21,19 +34,19 @@
 						<p>
 						<img height="100px" width="150px" src="/assets/moonphases/<%= phase_value(@fullness_yesterday.getPercent.to_i).sub('_', '') %>.jpg"/>
 						</p>
-						<p>Yesterday,<br/> <%= phase_value(@fullness_yesterday.getPercent.to_i).sub('_', ' ') %> (<%= @fullness_yesterday.getPercent.to_i %>%)</p>
+						<p><%= @yesterday.strftime("%d %b %Y") %>,<br/> <%= phase_value(@fullness_yesterday.getPercent.to_i).sub('_', ' ') %> (<%= @fullness_yesterday.getPercent.to_i %>%)</p>
 					</td>
 					<td>
 						<p>
 						<img height="100px" width="150px" src="/assets/moonphases/<%= phase_value(@fullness_today.getPercent.to_i).sub('_', '') %>.jpg"/>
 						</p>
-						<p><%= @now %>, <br/><%= phase_value(@fullness_today.getPercent.to_i).sub('_', ' ') %> (<%= @fullness_today.getPercent.to_i %>%)</p>
+						<p><%= @now.strftime("%d %b %Y") %>, <br/><%= phase_value(@fullness_today.getPercent.to_i).sub('_', ' ') %> (<%= @fullness_today.getPercent.to_i %>%)</p>
 					</td>
 					<td>
 						<p>
 						<img height="100px" width="150px" src="/assets/moonphases/<%= phase_value(@fullness_tomorrow.getPercent.to_i).sub('_', '') %>.jpg"/>
 						</p>
-						<p>Tomorrow, <br/><%= phase_value(@fullness_tomorrow.getPercent.to_i).sub('_', ' ') %> (<%= @fullness_tomorrow.getPercent.to_i %>%)</p>
+						<p><%= @tomorrow.strftime("%d %b %Y") %>, <br/><%= phase_value(@fullness_tomorrow.getPercent.to_i).sub('_', ' ') %> (<%= @fullness_tomorrow.getPercent.to_i %>%)</p>
 					</td>
 				</tr>
 			</table>

@@ -11,7 +11,9 @@ class Sighting < ActiveRecord::Base
      :longitude        => self.longitude,
      :sighted        => self.sighted,
      :visibility        => self.visibility,
-     :name               => self.user.name}
+     :name               => self.user.name,
+     :created_at	=> self.created_at
+ }
   end
 
 end

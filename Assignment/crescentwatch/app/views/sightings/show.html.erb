@@ -1,3 +1,8 @@
+	<div id="map-canvas" style="float:left; padding:50px;width:50%"></div>
+	<% content_for :end_matter do %>
+	  <%= javascript_include_tag "sightings_map" %>
+	<% end %>
+<div style=" float:left;padding-right:50px; padding-left:20px;width:30%;background-color: rgb(205, 205, 241);height: 400px">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -17,9 +22,11 @@
 
 <p>
   <b>Photo:</b>
-  <%= @sighting.photo %>
+        <% if @sighting.photo.to_s != '/photos/original/missing.png' %>
+            <img src="<%= @sighting.photo %>" width="100px" height="100px"/>
+        <% end %>
 </p>
 
 
-<%= link_to 'Edit', edit_sighting_path(@sighting) %> |
 <%= link_to 'Back', sightings_path %>
+</div>
