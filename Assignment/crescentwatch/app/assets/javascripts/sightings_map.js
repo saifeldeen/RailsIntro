@@ -38,8 +38,8 @@
             var dateStr = $.datepicker.formatDate( 'dd MM yy', d);
             var contentString = '<div id="content">'
                     + '<div id="userObservation">' + '</div>'
-                    + '<h1 id="firstHeading" class="firstHeading">'
-                    + observation.name+ ' ' + sightedStr + ' the moon on ' + dateStr +'</h1>' + '<div id="bodyContent">';
+                    + '<h2 id="firstHeading" class="firstHeading">'
+                    + observation.name+ ' ' + sightedStr + ' the moon on ' + dateStr +'</h2>' + '<div id="bodyContent">';
             if (observation.sighted){
                 contentString+= '<p>Sighting visibility: ' + observation.visibility + '</p>' ;
             } else {

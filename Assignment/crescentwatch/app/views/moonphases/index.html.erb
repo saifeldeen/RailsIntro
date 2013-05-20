@@ -9,10 +9,10 @@
 	<tr>
 		<td><img height="400px" width="500px" src="/assets/moonphases/<%= phase_value(@fullness_today.getPercent.to_i).sub('_', '') %>.jpg"/></td>
 		<td>
-			<table valign="top">
+			<table valign="top" style="padding-left: 10px">
 				<tr>
 					<td>
-						<h1>Moonphase Information for <%= @now.strftime("%d %b %Y") %></h1>
+						<h2 style="margin-top: -135px">Moonphase Information for <%= @now.strftime("%d %b %Y") %></h2>
 					</td>
 				</tr>
 				<tr>

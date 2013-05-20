@@ -1,9 +1,9 @@
-	<div id="map-canvas" style="float:left; padding:50px;width:50%"></div>
+	<div id="map-canvas" style="float:left; padding:50px;width:50%; height:500px"></div>
 	<% content_for :end_matter do %>
 	  <%= javascript_include_tag "sightings_map" %>
 	<% end %>
-<div style=" float:left;padding-right:50px; padding-left:20px;width:30%;background-color: rgb(205, 205, 241);height: 400px">
-<h1>New sighting</h1>
+<div style=" float:left;padding-right:50px; padding-left:20px;width:30%;background-color: rgb(139, 138, 165);height: 600px">
+<h2>New sighting</h2>
 <%= simple_form_for @sighting do |f| %>
   <%= f.input :visibility, :as => :select, :collection => ['Poor', 'Fair', 'Good', 'Excellent'], :class => "label", :label => 'How visible was the moon?' %>
   <%= f.input :sighted, :class => "input", :label => 'Was the moon sighted?' %>

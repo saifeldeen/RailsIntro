@@ -1,7 +1,10 @@
 html, body {
   height: 100%;
   margin: 0;
-  padding: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 #map-canvas, #map_canvas {

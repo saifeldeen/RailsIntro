@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
 	def index
-		Rails.logger.debug("******** TESTING")
+	    Rails.logger.debug("********  User ID (session): #{session[:user_id]}" )
 	end
 end

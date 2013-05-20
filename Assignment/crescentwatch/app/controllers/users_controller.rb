@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    session[:user_id] = nil
 
     respond_to do |format|
       format.html # new.html.erb
@@ -42,6 +43,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+      Rails.logger.debug("******** created user: #{@user.id}" )
 
     respond_to do |format|
       if @user.save
